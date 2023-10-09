@@ -1,1 +1,2 @@
-<p>dashboard works!</p>
+
+<app-dashboard-hero *ngFor="let h of heroes" [hero]=h (selected)="onSelect($event)"></app-dashboard-hero>
