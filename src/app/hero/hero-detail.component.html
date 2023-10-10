@@ -1,1 +1,11 @@
-<p>hero-detail works!</p>
+
+<div *ngIf="hero">
+    <h2><span>{{hero.name |uppercase}} Details</span></h2>
+    <div>id: {{hero.id}}</div>
+    <div>
+        <label for="heroName"><span>name:</span></label>
+        <input type="text" name="" id="heroName" [(ngModel)]="hero.name">
+    </div>
+    <button (click)="save(hero)">Save</button>
+    <button (click)="cancel()">Cancel</button>
+</div>

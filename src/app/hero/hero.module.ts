@@ -3,9 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { HeroRoutingModule } from './hero-routing.module';
 import { HeroListComponent } from './hero-list.component';
-import { HeroDetailComponent } from './hero-detail.component';
+import HeroDetailComponent from './hero-detail.component';
 import { HeroService } from '../model/hero.service';
 import { HeroDetailsService } from './hero-details.service';
+import { FormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -15,9 +17,9 @@ import { HeroDetailsService } from './hero-details.service';
     
   ],
   imports: [
-    CommonModule,
+   // CommonModule,
     HeroRoutingModule,
-    
+    SharedModule
   ],
   providers:[]
 })

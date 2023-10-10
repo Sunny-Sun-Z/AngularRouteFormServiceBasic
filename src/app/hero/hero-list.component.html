@@ -1,1 +1,8 @@
-<p>hero-list works!</p>
+<ul class="heroes">
+    <li *ngFor="let h of heroes | async">
+        <button (click)="onSelect(h)" [class.selected]="selectedHero==h" class="heroes">
+            <span class="badge">{{h.id}}</span>
+            <span class="name">{{h.name}}</span>
+        </button>
+    </li>
+</ul>

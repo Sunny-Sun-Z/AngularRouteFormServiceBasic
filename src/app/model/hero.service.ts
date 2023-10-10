@@ -3,8 +3,12 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError, map, tap } from 'rxjs';
 import { Hero } from './hero';
 
+// const options = {
+//   headers: new HttpHeaders({ 'Content-Type': 'appication/json' })
+// };
+
 const options = {
-  headers: new HttpHeaders({ 'content-Type': 'appication/json' })
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
 @Injectable({
@@ -21,23 +25,31 @@ export class HeroService {
     ) as Observable<Hero[]>;
   }
 
-  getHero<data>(id: number | string): Observable<Hero> {
+  getHero<Data>(id: number | string): Observable<Hero> {
+    
     if (typeof (id) === 'string')
       id = parseInt(id);
 
     const url = `${this.apiUrl}/?id=${id}`
-    return this.http.get<Hero[]>(this.apiUrl).pipe(
+    return this.http.get<Hero[]>(url).pipe(
       map(heroes => heroes[0]),
       tap(),
       //catchError({})
     )
   }
 
-  updateHero(hero: Hero): Observable<Hero> {
-    return this.http.put<Hero>(this.apiUrl, hero, options).pipe(
-      tap()
+  updateHero(hero: Hero): Observable<any> {
+    return this.http.put(this.apiUrl, hero, options).pipe(
+     // tap()
     );
   }
+  // updateHero(hero: Hero): Observable<any> {
+  //   console.log('xxyyyxx',hero)
+  //   return this.http.put(this.apiUrl, hero, options)
+  //       .pipe(
+  //           tap(_ => this.log(`updated hero id=${hero.id}`)),
+  //           catchError(this.handleError<any>('updateHero')));
+  // }
 
   addHero(hero: Hero) : Observable<Hero>{
     return this.http.post<Hero>(this.apiUrl, hero, options);

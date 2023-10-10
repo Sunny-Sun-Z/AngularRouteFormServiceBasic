@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboard.component';
 import { DashboardHeroComponent } from './dashboard-hero.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HeroModule } from '../hero/hero.module';
+import { SharedModule } from '../shared/shared.module';
 
 const routes : Routes = [
   {path: 'dashboard', component:DashboardComponent}
@@ -17,8 +18,9 @@ const routes : Routes = [
     
   ],
   imports: [
-    CommonModule,
+   // CommonModule,
     HeroModule,
+    SharedModule,
     RouterModule.forChild(routes),
    
   ]

@@ -10,6 +10,8 @@ import { HeroService } from './model/hero.service';
 import { HttpClientModule } from '@angular/common/http';
 import { InMemoryDataService } from './in-memory-data.service';
 import { HeroModule } from './hero/hero.module';
+import { SharedModule } from './shared/shared.module';
+//import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { HeroModule } from './hero/hero.module';
     InMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation: false}),
     DashboardModule,
     //HeroModule,
+    //FormsModule,
+    SharedModule,
     HttpClientModule
   ],
   providers: [HeroService],

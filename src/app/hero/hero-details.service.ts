@@ -11,8 +11,9 @@ export class HeroDetailsService {
   constructor(private service: HeroService) { }
 
   getHero(id: string | number): Observable<Hero|null> {
+    
     if (typeof (id) === 'string')
-      id = parseInt(id);
+      id = parseInt(id,10);
 
     return this.service.getHero(id).pipe(
       map(hero => hero? Object.assign({}, hero) : null
@@ -20,7 +21,7 @@ export class HeroDetailsService {
     )
   }
 
-  saveHero(hero: Hero){
+  saveHero(hero: Hero) {
     return this.service.updateHero(hero);
   }
 
